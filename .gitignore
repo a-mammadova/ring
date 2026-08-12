@@ -1,0 +1,28 @@
+# maven
+backend/target/
+.mvn/wrapper/maven-wrapper.jar
+
+# java
+*.class
+
+# intellij
+.idea/
+*.iml
+*.iws
+*.ipr
+
+#build dirs
+build/
+dist/
+
+# logs
+*.log
+
+# environment
+.env
+.env.*
+!.env.example
+
+# spring local configuration
+application-local.properties
+application-local.yml
