@@ -1,6 +1,8 @@
 package com.b12cl.service;
 
+import com.b12cl.dto.UpdateReminderRequest;
 import com.b12cl.model.Reminder;
+import com.b12cl.exception.ReminderNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -30,24 +32,24 @@ public class ReminderService {
                 return reminder;
             }
         }
-        return null;
+        throw new ReminderNotFoundException(id);
     }
 
-    public Reminder updateReminder(Long id, Reminder updatedReminder) {
+    public Reminder updateReminder(Long id, UpdateReminderRequest request) {
         for (Reminder reminder : reminders) {
             if (Objects.equals(reminder.getId(), id)) {
-                reminder.setTitle(updatedReminder.getTitle());
-                reminder.setRadius(updatedReminder.getRadius());
-                reminder.setLatitude(updatedReminder.getLatitude());
-                reminder.setLongitude(updatedReminder.getLongitude());
+                reminder.setTitle(request.getTitle());
+                reminder.setRadius(request.getRadius());
+                reminder.setLatitude(request.getLatitude());
+                reminder.setLongitude(request.getLongitude());
 
                 return reminder;
             }
         }
-        return null;
+        throw new ReminderNotFoundException(id);
     }
 
-    public boolean deleteReminder(Long id) {
+    public void deleteReminder(Long id) {
 
         Iterator<Reminder> iterator = reminders.iterator();
 
@@ -57,10 +59,10 @@ public class ReminderService {
 
             if (Objects.equals(reminder.getId(), id)) {
                 iterator.remove();
-                return true;
+                return;
             }
         }
-        return false;
+        throw new ReminderNotFoundException(id);
     }
 
     public List<Reminder> getAllReminders() {
