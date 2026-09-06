@@ -4,43 +4,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> create reminder </title>
+  <title> RING </title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
   <link rel="stylesheet" href="ring.css" />
-  <script src="ring.js"></script>
 </head>
 
 <body>
+  <div class="app">
+    <header>
+      <h1> RING </h1>
+      <p> location-based reminders </p>
+    </header>
 
-  <header class="topbar">
-    <h1> RInG </h1>
+    <main>
+      <section class="map-section">
+        <div id="map"> </div>
+      </section>
 
-    <nav>
-      <a href="ring.html" class="active"> create </a>
-      <a href="reminders.html"> my reminders </a>
-    </nav>
+      <section class="panel">
+        <h2> create reminders </h2>
+        <form id="reminder-form">
 
-  </header>
+          <div class="form-group">
+            <label for="title"> reminder title </label>
+            <input type="text" id="title" placeholder="e. g. buy your meds" required>
+          </div>
 
-  <main class="container">
-    <h2> new reminder </h2>
+          <div class="coords">
+            <div class="form-group">
+            <label for="latitude"> latitude </label>
+            <input type="number" id="latitude" step="any" readonly required>
+            </div>
 
-    <form id="reminder-form" class="card">
-      <label for="name"> reminder name </label>
-      <input type="text" id="name" placeholder="buy shampoo" required />
+            <div class="form-group">
+            <label for="longitude"> longitude </label>
+            <input type="number" id="longitude" step="any" readonly required>
+            </div>
+          </div>
 
-      <label> location </label>
-      <div class="coords">
-        <input type="number" step="any" id="lat" placeholder="latitude" required />
-        <input type="number" step="any" id="lng" placeholder="longitude" required />
-      </div>
+          <div class="form-group">
+            <label for="radius"> radius(meters) </label>
+            <input type="number" id="radius" placeholder="200m" min="10" value="100" required>
+          </div>
 
-      <label for="radius"> radius (meters)</label>
-      <input type="number" id="radius" min="10" value="200" required />
+          <button type="submit"> create reminder </button>
+        </form>
 
-      <button type="submit"> create reminder </button>
-      <p id="status" class="status"></p>
-    </form>
-  </main>
+        <div id="status"></div>
+      </section>
 
+      <section class="reminders-section">
+        <h2> existing reminders </h2>
+        <div id="reminders-list">
+          <p class="empty"> loading reminders... </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+    <script src="ring.js"> </script> 
 </body>
 </html>
