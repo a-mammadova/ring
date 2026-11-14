@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/api/reminders";
+const API_URL = "/api/reminders";
 
 const map = L.map("map").setView([40.4093, 49.8671], 12 )
 

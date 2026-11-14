@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class ReminderService {
 
-    public ReminderRepository reminderRepository;
+    private final ReminderRepository reminderRepository;
 
     public ReminderService(ReminderRepository reminderRepository) {
         this.reminderRepository = reminderRepository;
