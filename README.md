@@ -12,7 +12,7 @@ currently, it lets us create a reminder, view existing reminders and delete remi
 ## tech stack
 
 ### backend
-- Java, Spring (Boot, Web, Data JPA)
+- Java, Spring Boot (Spring Web, Spring Data JPA)
 
 ### frontend
 - HTML, CSS
