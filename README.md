@@ -6,7 +6,7 @@ users can create reminders based on location and a radius. the app is designed t
 
 ## current status
 
-backend currently provides REST API for creating, retrieving, updating and deleting reminders. reminders are persisted in a PostgreSQL database using Spring Data JPA. the frontend is currently under development
+backend currently provides REST API for creating, retrieving, updating and deleting reminders. reminders are persisted in a PostgreSQL database using Spring Data JPA. 
 
 ## tech stack
 
@@ -19,14 +19,11 @@ backend currently provides REST API for creating, retrieving, updating and delet
 ### frontend
 - HTML, CSS
 - Leaflet.js
-(Leaflet.js is coming soon, and i'll work on the frontend later)
 
 ## DB
 - PostgreSQL
 
 ## planned
-- integrate Leaflet.js
-- connect frontend to backend REST API
 - implement reminder detection and user notification
 - probably use Capacitor to package the application as a mobile app
 
